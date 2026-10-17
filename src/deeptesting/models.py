@@ -18,17 +18,23 @@ class DeviceProfile:
     brand: str = "OnePlus"
     operator: str = ""
     chip_id: str = ""
-    app_version: int = 17000003
+    app_version: int = 17000004
     client_lock_status: int = 0
     os_version: str = "16"
     language: str = "en-US"
+    flash_lock_state: int | None = None
 
     def request_payload(self, endpoint: str, new_token: str) -> dict[str, Any]:
         payload: dict[str, Any] = {
             "appVersion": self.app_version,
             "brand": self.brand,
             "deviceId": self.device_id,
-            "clientLockStatus": self.client_lock_status,
+            "clientLockStatus": (
+                self.flash_lock_state
+                if endpoint in {"get-apply-status", "unlock-condition-match", "get-history-unlock-code"}
+                and self.flash_lock_state is not None
+                else self.client_lock_status
+            ),
             "udid": self.udid,
             "model": self.model,
             "newToken": new_token,
