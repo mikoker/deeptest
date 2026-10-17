@@ -14,7 +14,7 @@ from .tokens import TokenCache
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="DeepTesting 17.0.3 API client")
+    parser = argparse.ArgumentParser(description="DeepTesting 17.0.4 API client")
     parser.add_argument("endpoint", choices=sorted(ENDPOINTS))
     parser.add_argument("--token", default=os.getenv("DEEPTEST_NEW_TOKEN", ""))
     parser.add_argument("--device-id", default=os.getenv("DEEPTEST_DEVICE_ID", ""))
@@ -26,7 +26,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--operator", default=os.getenv("DEEPTEST_OPERATOR", ""))
     parser.add_argument("--chip-id", default=os.getenv("DEEPTEST_CHIP_ID", ""))
     parser.add_argument("--os-version", default=os.getenv("DEEPTEST_OS_VERSION", "16"))
-    parser.add_argument("--app-version", type=int, default=int(os.getenv("DEEPTEST_APP_VERSION", "17000003")))
+    parser.add_argument("--app-version", type=int, default=int(os.getenv("DEEPTEST_APP_VERSION", "17000004")))
     parser.add_argument("--client-lock-status", type=int, default=int(os.getenv("DEEPTEST_LOCK_STATUS", "0")))
     parser.add_argument("--host", default=os.getenv("DEEPTEST_HOST", "lk-oneplus-cn.allawntech.com"))
     parser.add_argument("--timeout", type=float, default=30)
