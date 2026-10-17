@@ -18,7 +18,7 @@ class DeviceProfile:
     brand: str = "OnePlus"
     operator: str = ""
     chip_id: str = ""
-    app_version: int = 17000003
+    app_version: int = 17000004
     client_lock_status: int = 0
     os_version: str = "16"
     language: str = "en-US"

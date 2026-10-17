@@ -38,7 +38,7 @@ class RefreshConfig:
     app_id: str = "37020981"
     app_key: str = "7bb73a85f2d6462f95259fc574c66784"
     package_name: str = "com.coloros.deeptesting"
-    package_version: str = "17.0.3"
+    package_version: str = "17.0.4"
     sdk_version: str = "1.4.8"
     sdk_type: str = "account_sdk"
     id_sdk_version: str = "10408"
