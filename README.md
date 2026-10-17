@@ -146,7 +146,7 @@ Default device profile:
 ```text
 model=PLK110
 otaVersion=PLK110_11.A.68_0680_202606250030
-appVersion=17000003
+appVersion=17000004
 brand=OnePlus
 osVersion=16
 ```
