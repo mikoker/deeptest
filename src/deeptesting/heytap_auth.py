@@ -133,7 +133,7 @@ class HeyTapAuthClient:
             "/identity/v1/authn/send-verification-code",
             {
                 "processToken": process_token,
-                "captchaType": "SMS" if channel == "phone" else "EMAIL",
+                "validCodeType": "SMS" if channel == "phone" else "EMAIL",
             },
         )
         sent_data = self._optional_data(sent, "send verification code")
