@@ -43,7 +43,7 @@ class HeyTapAuthTests(unittest.TestCase):
         result = HeyTapAuthClient(transport).begin_login("13800000000", "phone", country_calling_code="+86")
         self.assertIsInstance(result, LoginSession)
         self.assertEqual(result.process_token, "process")
-        self.assertEqual(transport.calls[1][1], {"processToken": "process", "captchaType": "SMS"})
+        self.assertEqual(transport.calls[1][1], {"processToken": "process", "validCodeType": "SMS"})
         self.assertEqual(transport.calls[0][2]["headers"]["X-Validation-Method"], "phone")
 
     def test_email_login_uses_email_captcha_type(self):
@@ -53,7 +53,7 @@ class HeyTapAuthTests(unittest.TestCase):
         ])
         result = HeyTapAuthClient(transport).begin_login("person@example.com", "email")
         self.assertIsInstance(result, LoginSession)
-        self.assertEqual(transport.calls[1][1]["captchaType"], "EMAIL")
+        self.assertEqual(transport.calls[1][1]["validCodeType"], "EMAIL")
 
     def test_captcha_is_returned_as_challenge(self):
         transport = FakeTransport([{

@@ -13,7 +13,7 @@ class DeviceProfileTests(unittest.TestCase):
         payload = self.profile.request_payload("apply-unlock", "TOKEN")
         self.assertEqual(payload["newToken"], "TOKEN")
         self.assertNotIn("token", payload)
-        self.assertEqual(payload["appVersion"], 17000003)
+        self.assertEqual(payload["appVersion"], 17000004)
 
     def test_status_omits_common_new_api_fields(self):
         payload = self.profile.request_payload("get-apply-status", "TOKEN")
