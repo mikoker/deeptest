@@ -13,7 +13,14 @@ class DeviceProfileTests(unittest.TestCase):
         payload = self.profile.request_payload("apply-unlock", "TOKEN")
         self.assertEqual(payload["newToken"], "TOKEN")
         self.assertNotIn("token", payload)
-        self.assertEqual(payload["appVersion"], 17000003)
+        self.assertEqual(payload["appVersion"], 17000004)
+
+    def test_flash_lock_state_overrides_status_endpoints_only(self):
+        profile = DeviceProfile("guid", "device", client_lock_status=0, flash_lock_state=1)
+        status = profile.request_payload("get-apply-status", "TOKEN")
+        regular = profile.request_payload("apply-unlock", "TOKEN")
+        self.assertEqual(status["clientLockStatus"], 1)
+        self.assertEqual(regular["clientLockStatus"], 0)
 
     def test_status_omits_common_new_api_fields(self):
         payload = self.profile.request_payload("get-apply-status", "TOKEN")
